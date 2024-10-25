@@ -65,17 +65,20 @@ class Utilisateur:
            return f"Échec de la réservation pour {self.nom} : {resultat}"
 
 
-    def annuler_reservation(self, vol):
-        """Annule une réservation pour un vol donné."""
-        if vol in self.reservations:
-            resultat = vol.annuler_reservation()
-            if "succès" in resultat:
-                self.reservations.remove(vol)
-                return f"{self.nom} a annulé sa réservation sur le vol {vol.numero_vol}."
-            else:
-                return f"Échec de l'annulation pour {self.nom} : {resultat}"
+    def annuler_reservation(self, vol, nom, age):
+        """Annule une réservation pour un vol donné uniquement si le nom et l'âge correspondent."""
+        if self.nom == nom and self.age == age:
+           for v in self.reservations:
+               if v.numero_vol == vol.numero_vol:
+                  resultat = v.annuler_reservation()
+                  if "succès" in resultat:
+                      self.reservations.remove(v)
+                      return f"{self.nom} a annulé sa réservation sur le vol {vol.numero_vol}."
+                  else:
+                      return f"Échec de l'annulation pour {self.nom} : {resultat}"
+           return f"{self.nom} n'a pas de réservation sur le vol {vol.numero_vol}."
         else:
-            return f"{self.nom} n'a pas de réservation sur le vol {vol.numero_vol}."
+           return "Les informations de l'utilisateur ne correspondent pas. Annulation refusée."
 
     def __str__(self):
         return f"Utilisateur {self.nom}, Âge: {self.age}, Réservations: {[str(vol) for vol in self.reservations]}"

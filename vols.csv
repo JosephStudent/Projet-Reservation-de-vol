@@ -1,5 +1,5 @@
 numero_vol,depart,destination,nb_sieges,sieges_disponibles
-AF125,Paris,Berlin,100,100
-AF126,Paris,Tokyo,200,200
-AF127,Toulouse,Paris,150,150
-AF128,Strasbourg,Paris,120,120
+AF125,Paris,Berlin,100,99
+AF126,Paris,Tokyo,200,199
+AF127,Toulouse,Paris,150,149
+AF128,Strasbourg,Paris,120,119
