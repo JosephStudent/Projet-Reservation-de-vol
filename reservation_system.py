@@ -74,8 +74,9 @@ class Utilisateur:
                   if "Réussie" in resultat:
                       self.reservations.remove(v)
                       return f"{self.nom} a annulé sa réservation sur le vol {vol.numero_vol}."
+                  
                   else:
-                      return f"Échec de l'annulation pour {self.nom} : {resultat}"
+                      return f" Échec de l'annulation pour  {self.nom} : {resultat}"
            return f"{self.nom} n'a pas de réservation sur le vol {vol.numero_vol}."
         else:
            return "Les informations de l'utilisateur ne correspondent pas. Annulation refusée."

@@ -7,7 +7,7 @@ class Application(tk.Tk):
     def __init__(self, gestion_vols):
         super().__init__()
         self.title("Système de Réservation de Vols")
-        self.geometry("600x400")
+        self.geometry("600x500")
         self.gestion_vols = gestion_vols
         
         # Initialise l'utilisateur ici une seule fois
@@ -31,6 +31,10 @@ class Application(tk.Tk):
         tk.Label(self, text="Âge de l'utilisateur:").pack()
         self.age_entry = tk.Entry(self)
         self.age_entry.pack(pady=5)
+        
+        # Création cadre pour les boutons
+        button_frame = tk.Frame(self)
+        button_frame.pack(pady=10)
         
         # Boutons pour réserver, annuler, et afficher l'historique
         tk.Button(self, text="Réserver", command=self.reserver_vol).pack(pady=5)
