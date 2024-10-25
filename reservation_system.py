@@ -71,7 +71,7 @@ class Utilisateur:
            for v in self.reservations:
                if v.numero_vol == vol.numero_vol:
                   resultat = v.annuler_reservation()
-                  if "succès" in resultat:
+                  if "Réussie" in resultat:
                       self.reservations.remove(v)
                       return f"{self.nom} a annulé sa réservation sur le vol {vol.numero_vol}."
                   else:
